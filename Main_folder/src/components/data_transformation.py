@@ -94,9 +94,6 @@ class DataTransformation:
                   test_arr, 
                   self.data_transformation_config.preprocessor_obj
             )
-            
-
-
         except Exception as e:
             raise CustomException(e, sys)
     

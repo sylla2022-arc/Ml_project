@@ -16,8 +16,8 @@ from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformationConfig
 from src.components.data_transformation import DataTransformation
-
-
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -65,5 +65,14 @@ if __name__ == "__main__":
 
     logging.info("Starting data transformation process")
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    train_array, test_array, _  = data_transformation.initiate_data_transformation(train_data, test_data)
     logging.info("Data transformation completed successfully")
+
+    logging.info('Model trainer initiated')
+    model_trainer = ModelTrainer()
+    r2_squr = model_trainer.initiate_model_trainer(train_array=train_array, 
+                                         test_array = test_array)
+    print(f"R2 Score of the best model: ", r2_squr)
+    logging.info("Model training completed successfully")
+    logging.info("End of the script")
+    
