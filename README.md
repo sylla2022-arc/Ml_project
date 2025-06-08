@@ -1,1 +1,0 @@
-# End To end Machine Learning Project with edeplyment innAzure, AWS
