@@ -3,7 +3,7 @@ import sys
 
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-print(f"Root directory: {root_dir}")
+#print(f"Root directory: {root_dir}")
 if root_dir not in sys.path:
     sys.path.append(root_dir)
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     logging.info('Model trainer initiated')
     model_trainer = ModelTrainer()
-    r2_squr = model_trainer.initiate_model_trainer(train_array=train_array, 
+    r2_squr, _ = model_trainer.initiate_model_trainer(train_array=train_array, 
                                          test_array = test_array)
     print(f"R2 Score of the best model: ", r2_squr)
     logging.info("Model training completed successfully")
